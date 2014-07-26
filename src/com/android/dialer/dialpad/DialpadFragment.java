@@ -452,7 +452,7 @@ public class DialpadFragment extends Fragment
         mDigits.setOnLongClickListener(this);
         mDigits.addTextChangedListener(this);
         PhoneNumberFormatter.setPhoneNumberFormattingTextWatcher(getActivity(), mDigits);
-        setupKeypad(fragmentView);
+        setupKeypad(mFragmentView);
 
         mDelete = mFragmentView.findViewById(R.id.deleteButton);
         if (mDelete != null) {
@@ -644,7 +644,7 @@ public class DialpadFragment extends Fragment
 
     private void setupKeypad(View fragmentView) {
         // make sure keypad is there
-        View oneButton = fragmentView.findViewById(R.id.one);
+        View oneButton = mFragmentView.findViewById(R.id.one);
         if (oneButton == null)
             return;
 
@@ -722,9 +722,9 @@ public class DialpadFragment extends Fragment
     }
 
     public void refreshKeypad() {
-        View fragmentView = getView();
-        if (fragmentView != null)
-            setupKeypad(fragmentView);
+        View mFragmentView = getView();
+        if (mFragmentView != null)
+            setupKeypad(mFragmentView);
     }
 
     @Override
