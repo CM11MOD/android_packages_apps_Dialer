@@ -23,7 +23,6 @@ import android.media.MediaRecorder;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.os.SystemProperties;
-import android.provider.Settings;
 import android.util.Log;
 
 import com.android.services.callrecorder.common.CallRecording;
@@ -184,8 +183,6 @@ public class CallRecorderService extends Service {
     }
 
     public static boolean isEnabled(Context context) {
-        boolean defaultValue = context.getResources().getBoolean(R.bool.call_recording_enabled);
-        return Settings.System.getBoolean(context.getContentResolver(),
-                Settings.System.ALLOW_CALL_RECORDING, defaultValue);
+        return context.getResources().getBoolean(R.bool.call_recording_enabled);
     }
 }
